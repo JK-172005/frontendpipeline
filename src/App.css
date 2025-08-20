@@ -41,6 +41,31 @@
   color: #888;
 }
 
+/* ===== Theme Variables ===== */
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #222;
+  --card-bg: #fff;
+  --input-bg: #fff;
+  --input-border: #ccc;
+  --button-bg: #007bff;
+  --button-hover: #0056b3;
+  --button-text: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #181818;
+    --text-color: #f9f9f9;
+    --card-bg: #242424;
+    --input-bg: #2e2e2e;
+    --input-border: #555;
+    --button-bg: #0d6efd;
+    --button-hover: #1a75ff;
+    --button-text: #fff;
+  }
+}
+
 /* ===== Custom Styles for Form and Table Layout ===== */
 form {
   max-width: 600px;
@@ -76,19 +101,11 @@ h2, h3 {
   text-align: center;
   margin-bottom: 20px;
   font-weight: bold;
-  color: #333;
+  color: var(--text-color);
 }
 
 .form-container {
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  margin-bottom: 40px;
-}
-
-.form-container {
-  background-color: #f9f9f9;
+  background-color: var(--card-bg);
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -97,6 +114,7 @@ h2, h3 {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
+  color: var(--text-color);
 }
 
 .form-group {
@@ -105,14 +123,37 @@ h2, h3 {
 
 .form-label {
   font-weight: bold;
+  color: var(--text-color);
 }
 
-.table th,
-.table td {
-  vertical-align: middle;
-  text-align: center;
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  outline: none;
+  background: var(--input-bg);
+  color: var(--text-color);
 }
 
-.actions-cell button {
-  margin-right: 5px;
+input:focus, select:focus {
+  border-color: var(--button-bg);
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: var(--button-hover);
 }
